@@ -106,3 +106,24 @@ var name="sharanya"
 var name1="lavanya"
 console.log(place.localeCompare(city))
 console.log(name.localeCompare(name1))
+
+// strtswith():it is used to check whether the given string starts with the letter i pass 
+// and the secult will in the form of bool values true or false
+var c1="java script"
+console.log(c1.startsWith('j'))
+console.log(c1.startsWith("java"))
+console.log(c1.startsWith("script"))
+
+// endswith():to check whether the string ends with the given letter/character
+console.log(c1.endsWith("java"))
+console.log(c1.endsWith("t"))
+console.log(c1.endsWith("script"))
+
+// split():to split the given strings alog with the separator
+var num3="1,2,3,4,5,6"
+console.log(num3.split())
+
+
+// repeat():it is used to repeat the given string as per the number of times,we gave
+var place1="hyderabad"
+console.log(place1.repeat(3))
