@@ -74,7 +74,6 @@ date2.setMilliseconds(543)
 console.log(date2)
 
 
-// 
 var date3=new Date()
 console.log(date3.toString())
 // console.log(date3.getTime())
