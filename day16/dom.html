@@ -1,0 +1,83 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+ </head>
+ <body>
+    <h1>This is a heading tag</h1>
+    <p>Hello World</p>
+    <div>
+        <p id="one">My name is sharanya</p>
+    </div>
+    <h3>hari</h3>
+    <h3>cherry</h3>
+    <h3>siri</h3>
+    <h3>hasini</h3>
+    <h3>shanu</h3>
+    <button onclick="changee()">click here</button>
+
+    <h2 name="frd">Shannu</h2>
+    <h2 name="frd">Nani</h2>
+    <h2 name="frd">Sree</h2>
+    <h2 name="frd">Suppu</h2>
+    <h2 name="frd">Neela</h2>
+    <h2 name="frd">Navi</h2>
+    <h2 name="frd">sathi</h2>
+    <button onclick="MCA()">change here</button>
+
+    <h5 class="frds">Maggie</h5>
+    <h5 class="frds">Niru</h5>
+    <h5 class="frds">Prem</h5>
+    <h5 class="frds">NagaRaj</h5>
+
+ </body>
+ <script>
+
+    document.write("Good Evening")
+    // document.getElementId()
+    var greet =document.getElementById("one")
+    greet.style.color="green"
+    greet.textContent="<i>my name is charanya</i>"
+    greet.innerHTML="<b><u>sharanya<u></b>"
+    greet.style.fontSize="40px"
+
+    // document.getElementsByTagName()
+    var kids=document.getElementsByTagName("h3")
+    // function changee(){
+    //     kids[0].style.backgroundColor="yellow"
+    //     kids[1].style.color="green"
+
+    // }
+
+    function changee(){
+        for (i=0;i<kids.length;i++){
+            kids[i].style.color="red"
+            kids[i].style.backgroundColor="lightblue"
+            kids[i].style.fontSize="25px"
+        }
+    }
+
+    // document.getElementsByName()
+    var fname=document.getElementsByName("frd")
+    function MCA(){
+        for (i=0;i<fname.length;i++){
+            fname[i].style.backgroundColor="yellow"
+        }
+    }
+
+    // document.getElementsByClassName()
+    var frdsname=document.getElementsByClassName("frds")
+    for(i=0;i<frdsname.length;i++){
+        frdsname[i].style.color="green"
+        frdsname[i].style.backgroundColor="aqua"
+        frdsname[i].style.fontSize="30px"
+    }
+
+    
+
+
+    
+ </script>
+ </html>

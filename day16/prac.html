@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+</head>
+<body>
+    <p id="demo">hello</p>
+   <h2>Apple</h2>
+   <h2>Banana</h2>
+   <h2>Mango</h2>
+   <input name="username" type="text">
+   <input name="username" type="text">
+    <script>
+        // Create a paragraph with id="demo" and change its text using getElementById().
+        var one=document.getElementById("demo");
+        one.innerHTML="hello world";
+        // Add three <h2> tags on a page and change all their colors using getElementsByTagName().
+        var two=document.getElementsByTagName("h2");
+        for (i=0;i<two.length;i++){
+            two[i].style.color="blue";
+        }
+
+        // Create two <input> fields with name="username" and display how many inputs exist using getElementsByName().
+        var three=documnet.getElementByName("username")
+        three[0].style.color="red"
+        three[1].style.color="blue"
+
+
+    </script>
+    
+</body>
+</html>
