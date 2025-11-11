@@ -10,8 +10,8 @@
    <h2>Apple</h2>
    <h2>Banana</h2>
    <h2>Mango</h2>
-   <input name="username" type="text">
-   <input name="username" type="text">
+   <input name="username" type="text" placeholder="Enter Username 1"><br>
+   <input name="username" type="text" placeholder="Enter Username 2">
     <script>
         // Create a paragraph with id="demo" and change its text using getElementById().
         var one=document.getElementById("demo");
@@ -23,10 +23,8 @@
         }
 
         // Create two <input> fields with name="username" and display how many inputs exist using getElementsByName().
-        var three=documnet.getElementByName("username")
-        three[0].style.color="red"
-        three[1].style.color="blue"
-
+        var three = document.getElementsByName("username");
+    console.log("Total inputs with name='username': " + three.length);
 
     </script>
     

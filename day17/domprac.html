@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <!-- querySelector -->
+    <p class="para">one is one</p>
+    <p class="para">two is two</p>
+    <p class="para">three is three</p>
+    <button onclick="fun1()">click here</button>
+    <!-- querySelectorAll -->
+    <h5>Rose</h5>
+    <h5>Sunflower</h5>
+    <h5>lotus</h5>
+    <h5>marigold</h5>
+    <button onclick="fun2()">click me</button>
+    <!-- querySelector -->
+    <h1 class="change">head1</h1>
+    <h1 class="change">head2</h1>
+    <h1 class="change">head3</h1>
+    <button onclick="fun3()">click once</button>
+    <p id="fn">sharanya</p>
+    <p id="fn">Lavanya</p>
+    <p id="fn">Siri</p>
+    <button onclick="fun4()">click here</button>
+    <h3 id="title">Blue</h3>
+    <h3 id="title">Green</h3>
+    <h3 id="title">Yellow</h3>
+    <h3 id="title">Pink</h3>
+    <button onclick="fun5()">click me</button>
+    <!-- querySelectorAll -->
+    <p class="color">apple</p>
+    <p class="color">orange</p>
+    <p class="color">banana</p>
+    <p class="color">mango</p>
+    <button onclick="fun6()">click once</button>
+    <h4 class="box">box1</h4>
+    <h4 class="box">box2</h4>
+    <h4 class="box">box3</h4>
+    <h4 class="box">box4</h4>
+    <button onclick="fun7()">click here</button>
+
+
+
+</body>
+<script>
+    // querySelector
+    function fun1(){
+        var ele1=document.querySelector(".para")
+    ele1.style.color="blue"
+    }
+    // querySelectorAll
+    function fun2(){
+        var ele2=document.querySelectorAll("h5")
+        ele2.forEach((element)=>{
+            element.style.fontSize="30px"
+        })
+
+    }
+    // querySelector
+    function fun3(){
+        var ele3=document.querySelector(".change")
+        ele3.textContent="Welcome to Javascript DOM!"
+    }
+    function fun4(){
+        var ele4=document.querySelector("#fn")
+        ele4.style.color="blue"
+    }
+    function fun5(){
+        var ele5=document.querySelector("#title")
+        ele5.style.fontSize="30px"
+    }
+    // querySelectorAll
+    function fun6(){
+        var ele6=document.querySelectorAll(".color")
+        ele6.forEach((elements)=>{
+            elements.style.color="green"
+        })
+    }
+    function fun7(){
+        var ele7=document.querySelectorAll(".box")
+        ele7.forEach((box)=>{
+            box.style.border="2px solid black"
+        })
+    }
+</script>
+</html>

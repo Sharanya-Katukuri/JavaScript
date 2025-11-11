@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <p class="para">one is one</p>
+    <p class="para">two is two</p>
+    <p class="para">three is three</p>
+    <button onclick="fun_name()">click here</button> -->
+    <h1 class="class">sharanya</h1>
+    <h1 class="class">harish</h1>
+    <h1 class="class">vinay</h1>
+    <button onclick="fun_name()">click here</button>
+    <p id="n1">sharu</p>
+    <p id="n1"> cherry</p>
+    <button onclick="fun1()">click once</button>
+    <h2 id="name">apple</h2>
+    <h2 id="name">banana</h2>
+    <h2 id="name">mango</h2>
+    <button onclick="fun_id()">click me</button>
+
+    <p>one</p>
+    <p>two</p>
+    <p>three</p>
+    <button onclick="fun()">click here</button>
+
+    <h3 class="box">blue</h3>
+    <h3 class="box">green</h3>
+    <h3 class="box">pink</h3>
+    <h3 class="box">yellow</h3>
+    <button onclick="fun_color()">click once</button>
+
+
+    <script>
+        function fun_name(){
+            var ele1=document.querySelector(".class")
+
+            ele1.innerHTML="WELCOME TO JAVASCRIPT DOM!"
+        }
+        function fun1(){
+            var ele2=document.querySelector("#n1")
+            ele2.style.color="blue"
+
+        }
+        function fun_id(){
+            var ele3=document.querySelector("#name")
+            ele3.style.fontSize="30px";
+        }
+        function fun(){
+            var ele4=document.querySelectorAll("p")
+            ele4.forEach((elements)=>{
+                elements.style.color="green"
+            })
+        }
+        function fun_color(){
+            var ele5=document.querySelectorAll(".box")
+                ele5.forEach((elements)=>{
+                    elements.style.border="2px solid black"
+                })
+             
+            }
+        
+
+    </script>
+</body>
+</html>

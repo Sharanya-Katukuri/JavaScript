@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <p class="para">hello world!!</p>
+    <button onclick="fun()">click once</button>
+    <p class="one">good morning</p>
+    <div>my name is sharanya</div>
+    <button onclick="demo()">click me</button><br><br>
+    <input type="text">
+    <button onclick="sample()">click once</button>
+    <script>
+        function fun(){
+        var para1=document.querySelector(".para")
+        var para2=para1.setAttribute("id","pid")
+        var para3=document.getElementById("pid")
+        para3.style.color="green"  
+        }
+        var sen=document.getElementsByClassName("one")
+        sen[0].setAttribute("id","some")
+        var sen3=document.getElementById("some")
+        sen3.style.color="blue";
+        function demo(){
+            var ele1=document.querySelector("div")
+            var ele2=ele1.setAttribute("class","highlight")
+            var ele3=document.querySelector(".highlight")
+            ele3.style.background="pink"
+        }
+        function sample(){
+            var ele4=document.querySelector("input");
+            ele4.setAttribute("placeholder","Enter your name");
+            
+        }
+        
+
+    </script>
+</body>
+</html>
