@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <h4 id="h2">good evening</h4>
+    <img src="rose.jpeg" alt="" width="600px">
+    <br><br><br>
+    <button disabled>click me</button>
+    <div id="container">
+        <p class="color"> Blue</p>
+    </div>
+    <script>
+        // setAttribute
+        var el1=document.getElementById("h2")
+        var el2=el1.setAttribute("class","cls")
+        var el3=document.querySelector(".cls")
+        el3.style.color="blue"
+
+        // getAttribute
+        var flower=document.querySelector("img")
+        var rose=flower.getAttribute("src")
+        var width=flower.getAttribute("width")
+        console.log(rose)
+        console.log(width)
+
+        // removeAttribute
+        var btn=document.querySelector("button")
+        btn.removeAttribute("disabled")
+
+        // document.createElement()
+        var new_tag=document.createElement("h1")
+        new_tag.innerHTML="my name is sharanya"
+        
+        // appendChild
+        document.body.appendChild(new_tag)
+
+
+        // removeChild
+        var parent=document.getElementById("container")
+        var child=document.querySelector(".color")
+        parent.removeChild(child)
+        
+    </script>
+</body>
+</html>

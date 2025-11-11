@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <!-- Read Image Source -->
+     <img src="Rose_Baby_Pink.webp" alt="" width="500px">
+    
+    <!-- Read Link URL -->
+     <a href="dom.html"></a>
+    
+    <!-- Enable Disabled Button -->
+     <button disabled>click here</button>
+    
+    <!-- Remove Border from Image -->
+
+    <img src="rose.jpeg" alt="" border="2px" width="500px" id="rose">
+
+    <!-- Remove Style Attribute -->
+
+    <h3 style="color: red;">This is an heading tag</h3>
+
+    <script>
+        // Select an <a> tag and print its href attribute in the consol
+            var flower=document.getElementsByTagName("img")
+            var results=flower[0].getAttribute("src")
+            console.log(results)
+        // Select an <a> tag and print its href attribute in the consol
+            var file=document.getElementsByTagName("a")
+            var res=file[0].getAttribute("href")
+            console.log(res)
+        // Select a <button disabled> and remove the disabled attribute so the button becomes clickable.
+            var btn=document.getElementsByTagName("button")
+            btn[0].removeAttribute("disabled")
+
+        // Select an <img> that has a border attribute and remove it.
+            var flo=document.getElementById("rose")
+            flo.removeAttribute("border")
+        
+        // If an element has inline style="color:red", remove the style attribute completely.
+            var style=document.getElementsByTagName("h3")
+            style[0].removeAttribute("style")
+
+
+
+
+
+    </script>
+
+    
+</body>
+</html>
