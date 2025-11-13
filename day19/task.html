@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events Task</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            border: 2px solid black;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body onload="fun6()">
+    <!-- onclick -->
+    <button onclick="fun1()" id="clk">click here</button>
+    <br><br><br>
+    <!-- onmouseover   &   onmouseout -->
+     <div id="box" onmouseover="fun2()" onmouseout="fun3()"></div>
+     <br><br><br>
+
+
+     <!-- onfocus Event -->
+      <form action="">
+        <input type="text" id="focus" onfocus="fun4()">
+      </form>
+
+      <br><br><br>
+
+
+      <!-- onsubmit Event -->
+       <form  onsubmit="return fun5()">
+        <label for="Name">Name:</label><br><br>
+        <input type="text" id="valid"><br><br>
+        <button>Submit</button>
+       </form>
+       <br><br><br>
+
+
+       <!-- onchange Event -->
+        <label for="">FRONTEND</label> <br> <br>
+        <select name="" id="change" onchange="fun7()">
+            <option>HTML</option>
+            <option>CSS</option>
+            <option>JavaScript</option>
+
+        </select>
+
+
+
+
+     <script>
+        // Create a button that, when clicked, displays an alert message saying 'Button Clicked Successfully!'.
+        function fun1(){
+            // var displays=document.getElementById("clk")
+            alert("Button clicked successfully!!!")
+
+        }
+
+        // Create a square box that changes its background color to green when you hover over it.
+
+        function fun2(){
+            var change_color=document.getElementById("box")
+            change_color.style.backgroundColor="green"
+
+        }
+        // Create a box that changes its background color to red when hovered, and changes back to gray when the mouse moves out of the box.
+        function fun3(){
+            var color_change=document.getElementById("box")
+            color_change.style.backgroundColor="red"
+        }
+
+        // Create an input field that highlights (changes color) when the user clicks inside it to type.
+        function fun4(){
+            var bgc=document.getElementById("focus")
+            bgc.style.backgroundColor="yellow"
+
+        }
+        
+
+        // Create a form with a name input and submit button. When the form is submitted, check if the input is empty. If it’s empty, show an alert saying 'Name is required'. Otherwise, show a message 'Form Submitted Successfully!'.
+
+        function fun5(){
+            var submit=document.getElementById("valid").value;
+            if(submit===""){
+                alert("Name is required")
+                return false
+            }
+            else{
+                alert("Form submitted Successfully!!")
+                return true;
+            }
+
+
+        }
+
+
+        // Display an alert box saying 'Welcome! Page Loaded Successfully.' as soon as the webpage is completely loaded.
+
+        function fun6(){
+            alert("Welcome! Page Loaded Successfully!")
+        }
+
+        // Create a dropdown menu with options like HTML, CSS, and JavaScript. When the user selects an option, display an alert showing the selected value.
+        function fun7(){
+            var change=document.getElementById("change")
+            alert("The option is:"+change.value)
+        }
+
+</script>
+</body>
+</html>

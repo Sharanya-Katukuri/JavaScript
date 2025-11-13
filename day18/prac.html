@@ -6,6 +6,24 @@
     <title>DOM</title>
 </head>
 <body>
-    
+    <p id="msg">good morning</p>
+    <button onclick="ChangeColor()">change Background</button>
+    <h4 class="font">DOM METHODS</h4>
+    <script>
+        // Write a program to change the text of a <p> element with id "msg" to "Hello DOM!".
+            var change=document.getElementById("msg")
+            change.textContent="Hello Dom"
+
+        // Write a program to change the background color of the page when a button is clicked.
+        function ChangeColor(){
+            document.body.style.backgroundColor="lightblue"
+        }
+
+        // Select an element by its class name and change its font size to 30px.
+        var size=document.getElementsByClassName("font")
+        size[0].style.fontSize="30px"
+
+        
+    </script>
 </body>
 </html>

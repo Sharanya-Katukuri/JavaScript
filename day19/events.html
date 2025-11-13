@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+</head>
+<body onload="fun6()">
+    <!-- onclick -->
+    <h2 id="click">Lets go to party</h2>
+    <button onclick="fun1()" >click here</button>
+    <br><br><br>
+    <!-- onmouseover -->
+    <button onmouseover="fun2()">MOUSEOVER</button>
+    <br><br><br>
+    <!-- onmouseout -->
+    <button onmouseout="fun3()">MOUSEOUT</button>
+    <br><br><br>
+
+    <!--onfocus-->
+    <form action="">
+        <input type="text" onfocus="fun4()" id="focus">
+    </form>
+    <br><br><br>
+
+    <!-- onsubmit -->
+    <form action="" id="sub" onsubmit="fun5()"> <br>
+        <input type="text">
+        <button>submit</button>
+
+     </form>
+    <br><br><br>
+    <!-- onchange -->
+     <input type="text" id="change">
+     <br><br><br>
+
+     <select id="fruits">
+        <option>apple</option>
+        <option>mango</option>
+        <option>banana</option>
+     </select>
+
+    <input type="checkbox" name="" id="chk" > Terms accepted
+
+
+
+</body>
+<script>
+    // onclick
+    function fun1(){
+    var click=document.getElementById("click")
+    click.innerHTML="Today is wednesday wait until saturday"
+    }
+    // onmouseover
+    function fun2(){
+        alert("You moved the cursor on the button")
+    }
+    // onmouseout
+    function fun3(){
+        alert("You move the mouse out of the button")
+    }
+    // onfocus
+    function fun4(){
+        var focus=document.getElementById("focus")
+        focus.style.backgroundColor="orange"
+    }
+    // onsubmit
+    function fun5(){
+        alert("Form submitted successfully")
+    }
+    // onload()
+    function fun6(){
+        alert("page reload successfully")
+    }
+    // onchange()
+    var changes=document.getElementById("change")
+    changes.onchange=function(){
+        console.log("the add content is:",changes.value)
+    }
+
+    var frt=document.querySelector("#fruits")
+    frt.onchange=function() {
+        console.log("The selected fruits is:",frt.value)
+    }
+
+    var checking=document.getElementById("chk")
+    checking.onchange=function() {
+        if(checking.checked){
+        console.log("checked")
+    }
+    else{
+        console.log("unchecked")
+    }
+
+    };
+    
+</script>
+</html>
