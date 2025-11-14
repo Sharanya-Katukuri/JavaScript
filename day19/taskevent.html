@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Events Form</title>
+  <style>
+    /* General page styling */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f3ec78, #af4261);
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    /* Form container */
+    form {
+      background-color: #fff;
+      padding: 30px 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      width: 320px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    form:hover {
+      transform: scale(1.03);
+    }
+
+    label {
+      font-size: 18px;
+      font-weight: bold;
+      display: block;
+      margin-bottom: 8px;
+      text-align: left;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      font-size: 16px;
+      outline: none;
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+    }
+
+    input:focus, select:focus {
+      border-color: #af4261;
+      box-shadow: 0 0 10px rgba(175, 66, 97, 0.4);
+    }
+
+    /* Button styling */
+    button {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      background-color: rgb(233, 169, 218);
+      color: rgb(96, 34, 254);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: green;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #af4261;
+    }
+  </style>
+</head>
+<body onload="fun5()">
+
+  <form onsubmit="return fun4()">
+    <h2>Event Form</h2>
+    <label for="focus">Name</label>
+    <input type="text" id="focus" onfocus="fun1()" placeholder="Enter Your Name">
+
+    <label for="select">Courses</label>
+    <select id="select" onchange="fun6()">
+      <option value="">--Select Course--</option>
+      <option value="MPC">MPC</option>
+      <option value="BiPC">BiPC</option>
+      <option value="CEC">CEC</option>
+      <option value="HEC">HEC</option>
+    </select>
+
+    <button id="mouse" onmouseover="fun2()" onmouseout="fun3()">Submit</button>
+  </form>
+
+  <script>
+    // onfocus
+    function fun1() {
+      var focus = document.getElementById("focus");
+      focus.style.backgroundColor = "#ffe6f2";
+    }
+
+    // onmouseover
+    function fun2() {
+      var over = document.getElementById("mouse");
+      over.style.backgroundColor = "green";
+      over.style.color = "white";
+    }
+
+    // onmouseout
+    function fun3() {
+      var out = document.getElementById("mouse");
+      out.style.backgroundColor = "lightblue";
+      out.style.color = "red";
+    }
+
+    // onsubmit
+    function fun4() {
+      var sub = document.getElementById("focus").value;
+      if (sub === "") {
+        alert("Name is required!");
+        return false;
+      } else {
+        alert("Form Submitted Successfully!");
+        return true;
+      }
+    }
+
+    // onload
+    function fun5() {
+      alert("Welcome to the Interactive Events Page!");
+    }
+
+    // onchange
+    function fun6() {
+      var course = document.getElementById("select").value;
+      if (course !== "") {
+        alert("Selected Course: " + course);
+      }
+    }
+  </script>
+
+</body>
+</html>

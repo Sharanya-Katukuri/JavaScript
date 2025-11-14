@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+</head>
+<body onload="fun5()">
+    <form action="" onsubmit="fun4()">
+        <label for="">Name</label> <br><br>
+        <input type="text" name="" id="focus" onfocus="fun1()" placeholder="Enter Your Name"><br><br>
+        <label for="">Courses</label> <br><br>
+        <select name="" id="select" onchange="fun6()">
+            <option value="MPC">MPC</option>
+            <option value="BiPc">BiPC</option>
+            <option value="CEC">CEC</option>
+            <option value="HEC">HEC</option>
+        </select><br><br>
+        <button id="mouse" onmouseover="fun2()" onmouseout="fun3()">Submit</button>
+
+    </form>
+    <script>
+        // onfocus
+        function fun1(){
+            var focus=document.getElementById("focus")
+            focus.style.backgroundColor="lightpink"
+        }
+        // onmouseover
+        function fun2(){
+            var over=document.getElementById("mouse")
+            over.style.backgroundColor="green"
+            over.style.color="white"
+        }
+        // onmouseout
+        function fun3(){
+            var out=document.getElementById("mouse")
+            out.style.backgroundColor="lightblue"
+            out.style.color="red"
+        }
+        // onsubmit
+        function fun4(){
+            var sub=document.getElementById("focus").value
+            if (sub===""){
+                alert("Name is required!")
+                return false
+
+            }
+            else{
+                alert("Form Submitted Successfully!")
+                return true
+            }
+        }
+        // onload
+        function fun5(){
+            alert("Welcome to the Events!!")
+        }
+        // onchane
+        function fun6(){
+            var course=document.getElementById("select").value
+            if(course!==""){
+                alert("Selected Course:" +course)
+            }
+        }
+
+    </script>
+</body>
+</html>

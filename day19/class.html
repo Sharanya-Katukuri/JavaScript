@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVENTS</title>
+    <style>
+    .box{
+            height: 50px;
+            width: 50px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <p id="p1"></p>
+    <button onclick="fun1()" id="btn"> Click here</button> <br><br> <br> <br>
+    <div class="box" onmouseover="fun2()" onmouseout="fun3()" ></div> <br>
+    <div class="box" onmouseover="fun2()" onmouseout="fun3()"></div> <br>
+    <div class="box" onmouseover="fun2()" onmouseout="fun3()"></div> <br>
+    <button onclick="fun4()"> click here</button> <br><br><br>
+
+    <form action="">
+        <input type="text" onfocus="fun5()" onchange="fun6()" ><br><br>
+        <input type="text" onfocus="fun5()" onchange="fun6()"><br><br>
+        <input type="text" onfocus="fun5()" onchange="fun6()"><br><br>
+    </form> <br><br>
+
+
+    <form action="" id="formid">
+        <label for="">Name:</label>
+        <input type="text" placeholder="Enter Your Name"> <br><br>
+        <label for="">Email:</label>
+        <input type="email" placeholder="Enter yor email"> <br><br>
+        <label for="">Age:</label>
+        <input type="text"> <br><br>
+        <button>Submit</button>
+
+    </form>
+    <script>
+        function fun1(){
+            var content=document.getElementById("p1")
+            content.textContent="hello world"
+            var para=document.getElementById("btn")
+            para.textContent="show again"
+        }
+
+       function fun2(){
+            var color_change=document.getElementsByClassName("box")
+            for(i=0;i<color_change.length;i++){
+              color_change[i].style.transform="scale(1.2)"  
+            }
+       }
+       function fun3(){
+        var color_change_out=document.getElementsByClassName("box")
+            for(i=0;i<color_change_out.length;i++){
+              color_change_out[i].style.transform="scale(1)"  
+            }
+       }
+
+        function fun4(){
+            var colors=document.getElementsByClassName("box")
+            for(i=0;i<colors.length;i++){
+                colors[i].style.backgroundColor="yellow" 
+            }
+        }
+
+
+    function fun5(){
+        var ele1=document.getElementsByTagName("input")
+        ele1[0].style.backgroundColor="lightblue"
+        ele1[1].style.backgroundColor="lightgreen"
+        ele1[2].style.backgroundColor="pink"
+
+
+    }
+    // function fun6(){
+    //     var el2=document.getElementsByTagName("input")
+    //     for (i=0;i<el2.length;i++){
+    //         if(!i===""){
+    //             alert("Enter atleast 3 characters")
+    //             return false
+    //         }
+    //         else{
+    //             alert("ok")
+    //         }
+    //     }
+    // }
+    </script>   
+</body>
+</html>
