@@ -13,37 +13,56 @@
     </style>
 </head>
 <body>
-    <p id="p1"></p>
-    <button onclick="fun1()" id="btn"> Click here</button> <br><br> <br> <br>
+    <button onclick="fun1()" id="btn"> Click here</button> <br>
+    <p id="p1" > hello world</p> <br><br>
+
     <div class="box" onmouseover="fun2()" onmouseout="fun3()" ></div> <br>
     <div class="box" onmouseover="fun2()" onmouseout="fun3()"></div> <br>
     <div class="box" onmouseover="fun2()" onmouseout="fun3()"></div> <br>
     <button onclick="fun4()"> click here</button> <br><br><br>
 
-    <form action="">
-        <input type="text" onfocus="fun5()" onchange="fun6()" ><br><br>
-        <input type="text" onfocus="fun5()" onchange="fun6()"><br><br>
-        <input type="text" onfocus="fun5()" onchange="fun6()"><br><br>
+   <!-- <input type="text">
+    <input type="text">
+    <input type="text">
+    <br><br>
+    <span id="msg"></span> -->
+    
+<!-- Task 4: onsubmit + document.querySelector + document.querySelectorAll
+ -->
+
+    <form id="formid">
+        <input type="text" id="name" placeholder="Name"><br><br>
+        <input type="email" id="email" placeholder="Email"><br><br>
+        <input type="number" id="age" placeholder="Age"><br><br>
+        <button type="submit" id="Btns">Submit</button>
+    </form>
+    <div id="formMsg"></div>
+
+
     </form> <br><br>
 
+    <!-- Task 5: Setup theme radio buttons -->
+    <label><input type="radio" name="theme" value="Light"> Light</label>
+    <label><input type="radio" name="theme" value="Dark"> Dark</label>
+    <div id="themeMsg"></div>
 
-    <form action="" id="formid">
-        <label for="">Name:</label>
-        <input type="text" placeholder="Enter Your Name"> <br><br>
-        <label for="">Email:</label>
-        <input type="email" placeholder="Enter yor email"> <br><br>
-        <label for="">Age:</label>
-        <input type="text"> <br><br>
-        <button>Submit</button>
 
-    </form>
+
     <script>
+        // Task 1: onclick + document.getElementById
+
+        
+            var pa=document.getElementById("p1")
+            pa.style.display='block'
+        
         function fun1(){
             var content=document.getElementById("p1")
-            content.textContent="hello world"
+            content.style.display='none'
+           
             var para=document.getElementById("btn")
             para.textContent="show again"
         }
+// Task 2: onmouseover + onmouseout + document.getElementsByClassName
 
        function fun2(){
             var color_change=document.getElementsByClassName("box")
@@ -64,28 +83,89 @@
                 colors[i].style.backgroundColor="yellow" 
             }
         }
+// Task 3: onfocus + onchange + document.getElementsByTagName
 
 
-    function fun5(){
-        var ele1=document.getElementsByTagName("input")
-        ele1[0].style.backgroundColor="lightblue"
-        ele1[1].style.backgroundColor="lightgreen"
-        ele1[2].style.backgroundColor="pink"
+    
+        // const inputs = document.getElementsByTagName("input");
+        // const msg = document.getElementById("msg");
+
+        // for (let inp of inputs) {
+
+        //     let validated = false;
+
+        //     inp.onfocus = function () {
+        //         inp.style.background = "lightblue";
+        //     };
+
+        //     inp.onchange = function () {
+        //         if (validated) return;
+
+        //         if (inp.value.length < 3) {
+        //             msg.textContent = "Error: Minimum 3 characters";
+        //             msg.style.color = "red";
+        //         } else {
+        //             msg.textContent = "OK";
+        //             msg.style.color = "green";
+        //             validated = true;
+        //         }
+        //     };
+        // }
 
 
-    }
-    // function fun6(){
-    //     var el2=document.getElementsByTagName("input")
-    //     for (i=0;i<el2.length;i++){
-    //         if(!i===""){
-    //             alert("Enter atleast 3 characters")
-    //             return false
-    //         }
-    //         else{
-    //             alert("ok")
-    //         }
-    //     }
-    // }
+    // Task 4: onsubmit + document.querySelector + document.querySelectorAll
+        const forms = document.querySelector("#formid");
+        const formInputs_2 = document.querySelectorAll("#formid input");
+        const formMsg = document.querySelector("#formMsg");
+        const submitBtn = document.getElementById("Btns");
+
+        forms.onsubmit = function (e) {
+            e.preventDefault();
+
+            let name = formInputs_2[0].value;
+            let email = formInputs_2[1].value;
+            let age = Number(formInputs_2[2].value);
+
+            if (name.length < 2) {
+                formMsg.textContent = "Name must be at least 2 characters.";
+                return;
+            }
+            if (!email.includes("@")) {
+                formMsg.textContent = "Invalid email.";
+                return;
+            }
+            if (age <= 0) {
+                formMsg.textContent = "Age must be greater than 0.";
+                return;
+            }
+
+            formMsg.textContent = `Welcome, ${ name } !`;
+            form.reset();
+            Btns.disabled = true;
+        };
+
+        // Task 5: Setup theme radio buttons
+
+
+        const themes = document.getElementsByName("theme");
+        const themeMsg = document.querySelector("#themeMsg");
+        let currentTheme = "Light";
+
+        themes.forEach(t => {
+            t.onchange = function () {
+                currentTheme = this.value;
+                themeMsg.textContent = `Current theme: ${ this.value }`;
+
+                if (this.value === "Dark") {
+                    document.body.classList.add("dark-mode");
+                } else {
+                    document.body.classList.remove("dark-mode");
+                }
+            };
+        });
+
+
+
     </script>   
 </body>
 </html>

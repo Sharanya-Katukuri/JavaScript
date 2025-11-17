@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Events & DOM Tasks</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background: lightblue;
+            margin: 10px;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .dark-mode {
+            background: #222;
+            color: white;
+        }
+
+        .done {
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Task 1: Toggle Paragraph</h2>
+    <button id="toggleBtn">Hide</button>
+    <p id="para">This is a hidden paragraph test.</p>
+
+
+    <hr>
+
+    <h2>Task 2: Boxes</h2>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+
+
+    <hr>
+
+    <h2>Task 3: Input Validation</h2>
+    <input type="text" placeholder="Field 1">
+    <input type="text" placeholder="Field 2">
+    <input type="text" placeholder="Field 3">
+    <br><br>
+    <span id="msg"></span>
+
+
+    <hr>
+
+    <h2>Task 4: Form Validation</h2>
+    <form id="myForm">
+        <input type="text" id="name" placeholder="Name"><br><br>
+        <input type="email" id="email" placeholder="Email"><br><br>
+        <input type="number" id="age" placeholder="Age"><br><br>
+        <button type="submit" id="submitBtn">Submit</button>
+    </form>
+    <div id="formMsg"></div>
+
+
+    <hr>
+
+    <h2>Task 5: Theme Selection</h2>
+    <label><input type="radio" name="theme" value="Light"> Light</label>
+    <label><input type="radio" name="theme" value="Dark"> Dark</label>
+    <div id="themeMsg"></div>
+
+
+    <hr>
+
+    <h2>Task 6: Interactive Task List</h2>
+    <ul id="taskList">
+        <li>Task A</li>
+        <li>Task B</li>
+    </ul>
+
+    <input type="text" id="newTask" placeholder="New Task">
+    <button id="addTaskBtn" disabled>Add Task</button>
+
+
+    <script>
+
+        /* ---------------------- TASK 1 ------------------------- */
+
+        const btn = document.getElementById("toggleBtn");
+        const para = document.getElementById("para");
+
+        btn.onclick = () => {
+            if (para.style.display === "none") {
+                para.style.display = "block";
+                btn.textContent = "Hide";
+            } else {
+                para.style.display = "none";
+                btn.textContent = "Show again";
+            }
+        };
+
+
+        /* ---------------------- TASK 2 ------------------------- */
+
+        const boxes = document.getElementsByClassName("box");
+
+        for (let box of boxes) {
+
+            box.onmouseover = function () {
+                this.style.transform = "scale(1.2)";
+            };
+
+            box.onmouseout = function () {
+                this.style.transform = "scale(1)";
+            };
+
+            box.onclick = function () {
+                this.style.background = "orange";
+            };
+        }
+
+
+        /* ---------------------- TASK 3 ------------------------- */
+
+        const inputs = document.getElementsByTagName("input");
+        const msg = document.getElementById("msg");
+
+        for (let inp of inputs) {
+
+            let validated = false;
+
+            inp.onfocus = function () {
+                inp.style.background = "#ffeeba";
+            };
+
+            inp.onchange = function () {
+                if (validated) return;
+
+                if (inp.value.length < 3) {
+                    msg.textContent = "Error: Minimum 3 characters required";
+                    msg.style.color = "red";
+                } else {
+                    msg.textContent = "OK";
+                    msg.style.color = "green";
+                    validated = true;
+                }
+            };
+        }
+
+
+        /* ---------------------- TASK 4 ------------------------- */
+
+        const form = document.querySelector("#myForm");
+        const formInputs = document.querySelectorAll("#myForm input");
+        const formMsg = document.querySelector("#formMsg");
+        const submitBtn = document.getElementById("submitBtn");
+
+        form.onsubmit = function (e) {
+            e.preventDefault();
+
+            let name = formInputs[0].value;
+            let email = formInputs[1].value;
+            let age = Number(formInputs[2].value);
+
+            if (name.length < 2) {
+                formMsg.textContent = "Name must be at least 2 characters.";
+                return;
+            }
+            if (!email.includes("@")) {
+                formMsg.textContent = "Invalid email.";
+                return;
+            }
+            if (age <= 0) {
+                formMsg.textContent = "Age must be greater than 0.";
+                return;
+            }
+
+            formMsg.textContent = `Welcome, ${ name } !`;
+            form.reset();
+            submitBtn.disabled = true;
+        };
+
+
+        /* ---------------------- TASK 5 ------------------------- */
+
+        const themes = document.getElementsByName("theme");
+        const themeMsg = document.querySelector("#themeMsg");
+        let currentTheme = "Light";
+
+        themes.forEach(t => {
+            t.onchange = function () {
+                currentTheme = this.value;
+                themeMsg.textContent = `Current theme: ${ this.value }`;
+
+                if (this.value === "Dark") {
+                    document.body.classList.add("dark-mode");
+                } else {
+                    document.body.classList.remove("dark-mode");
+                }
+            };
+        });
+
+        // Bonus: before unload
+        window.onbeforeunload = function () {
+            return` Do you really want to leave with ${ currentTheme } mode ?`;
+        };
+
+
+        /* ---------------------- TASK 6 ------------------------- */
+
+        const taskList = document.getElementById("taskList");
+        const newTask = document.getElementById("newTask");
+        const addTaskBtn = document.getElementById("addTaskBtn");
+
+        // Function for attaching events to each LI
+        function attachListEvents(li) {
+            li.onmouseover = function () {
+                this.style.textDecoration = "underline";
+            };
+
+            li.onmouseout = function () {
+                this.style.textDecoration = "none";
+            };
+
+            li.onclick = function () {
+                this.classList.add("done");
+                this.onclick = null; // disable future clicks
+            };
+        }
+
+        // Apply handlers to initial items
+        document.querySelectorAll("#taskList li").forEach(li => attachListEvents(li));
+
+
+        // Add new task logic
+        addTaskBtn.onclick = function () {
+            if (newTask.value.trim() === "") {
+                alert("Enter a task!");
+                return;
+            }
+
+            const li = document.createElement("li");
+            li.textContent = newTask.value;
+            taskList.appendChild(li);
+
+            attachListEvents(li);
+
+            newTask.value = "";
+            addTaskBtn.disabled = true;
+        };
+
+
+        // Enable button only when ≥ 3 characters
+        newTask.onchange = function () {
+            addTaskBtn.disabled = newTask.value.length < 3;
+        };
+
+    </script>
+
+</body>
+
+</html>
