@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        .Calculator{
+            height: 400px;
+            width: 300px;
+            border: 2px solid black;
+            margin:auto ;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: rgb(164, 166, 241);
+
+        }
+        .display{
+            width: 210px;
+            height: 50px;
+            border: 2px solid white;
+            background-color: white;
+            border-radius: 10px;
+
+        }
+        button{
+            width: 40px;
+            height: 40px;
+            border: 2px solid rgb(190, 121, 154);
+            background-color: rgb(251, 47, 145);
+            border-radius: 10px;
+            color: white;
+        }
+        .ntb{
+            background-color: rgb(173, 213, 63);
+            border: 2px solid rgb(173, 213, 63);
+        }
+    </style>
+</head>
+<body>
+    <table class="Calculator">
+        <tr>
+            <td colspan="3"><input type="text" class="display" id="result" disabled></td>
+            <td><button id="btn" class="ntb" onclick="clearscreen()">AC</button></td>
+        </tr>
+        <tr>
+            <td><button value="1" onclick="displayed(1)">1</button></td>
+            <td><button value="2"onclick="displayed(2)">2</button></td>
+            <td><button value="3"onclick="displayed(3)">3</button></td>
+            <td><button value="+"onclick="displayed('+')">+</button></td>
+        </tr>
+        <tr>
+            <td><button value="4"onclick="displayed(4)">4</button></td>
+            <td><button value="5"onclick="displayed(5)">5</button></td>
+            <td><button value="6"onclick="displayed(6)">6</button></td>
+            <td><button value="-"onclick="displayed('-')">-</button></td>
+        </tr>
+        <tr>
+            <td><button value="7"onclick="displayed(7)">7</button></td>
+            <td><button value="8"onclick="displayed(8)">8</button></td>
+            <td><button value="9"onclick="displayed(9)">0</button></td>
+            <td><button value="*"onclick="displayed('*')">*</button></td>
+        </tr>
+        <tr>
+            <td><button value="0"onclick="displayed(0)">0</button></td>
+            <td><button value="."onclick="displayed('.')">.</button></td>
+            <td><button value="=" class="ntb" onclick="calculation()" >=</button></td>
+            <td><button value="/"onclick="displayed('/')">/</button></td>
+        </tr>
+    </table>
+    
+    <script>
+        function displayed(value){
+            document.getElementById("result").value+=value
+        }
+        function clearscreen(){
+            document.getElementById("result").value=" "
+        }
+        function calculation(){
+            
+            var res=document.getElementById("result").value
+            var result=eval(res)
+            document.getElementById('result').value=result
+        }
+    </script>
+</body>
+</html>

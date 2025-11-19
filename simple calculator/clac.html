@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+
+    <style>
+
+        /* =========================
+           COMMON BASE STYLES
+        ==========================*/
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: Arial;
+            transition: 0.4s;
+        }
+
+        button{
+            width: 45px;
+            height: 45px;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.2s;
+            border: none;
+        }
+        button:active{
+            transform: scale(0.88);
+        }
+
+        .Calculator{
+            height: 400px;
+            width: 300px;
+            margin: 40px auto;
+            padding: 15px;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+
+        .display{
+            width: 230px;
+            height: 60px;
+            border-radius: 10px;
+            font-size: 28px;
+            padding: 5px;
+            margin-bottom: 10px;
+            border: none;
+        }
+
+        #themeToggle{
+            display: block;
+            margin: 15px auto;
+            padding: 8px;
+            font-size: 18px;
+            border-radius: 8px;
+        }
+
+        /* ===============================
+            DARK NEON THEME  (YOUR THEME)
+        ================================*/
+        body.dark{
+            background: #0f0f0f;
+            color: white;
+        }
+        .Calculator.dark{
+            background-color: #1c1c1c;
+            box-shadow: 0 12px 25px rgba(0,255,220,0.3);
+        }
+        .display.dark{
+            background-color: #000;
+            color: #00f6ff;
+            border: 1px solid #00ffe1;
+            box-shadow: inset 0 0 10px #00ffe1;
+        }
+        button.dark{
+            background-color: #00eaff;
+            color: black;
+            box-shadow: 0 0 10px #00eaff;
+        }
+        button.dark:hover{
+            transform: scale(1.1);
+            box-shadow: 0 0 20px #00eaff;
+        }
+        .ntb.dark{
+            background-color: #ff0077 !important;
+            box-shadow: 0 0 10px #ff0077 !important;
+            color: white;
+        }
+
+        /* ===============================
+                BLUE THEME
+        ================================*/
+        body.blue{
+            background: linear-gradient(135deg, #89f7fe, #66a6ff);
+        }
+        .Calculator.blue{
+            background-color: #d9e7ff;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        }
+        .display.blue{
+            background: white;
+            color: black;
+        }
+        button.blue{
+            background-color: #4e73df;
+            color: white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        button.blue:hover{
+            transform: scale(1.1);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+        }
+        .ntb.blue{
+            background: #28d79f !important;
+            color: black;
+        }
+
+        /* ===============================
+                PINK THEME
+        ================================*/
+        body.pink{
+            background: linear-gradient(135deg, #ff9aee, #b28dff);
+        }
+        .Calculator.pink{
+            background-color: #d9b3ff;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        }
+        .display.pink{
+            background: white;
+            color: black;
+        }
+        button.pink{
+            background-color: #ff5ca8;
+            color: white;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.2);
+        }
+        button.pink:hover{
+            transform: scale(1.1);
+            box-shadow: 0 0 15px #ff5ca8;
+        }
+        .ntb.pink{
+            background: #8dff64 !important;
+            color: black;
+        }
+
+    </style>
+</head>
+<body class="dark">
+
+    <!-- Theme Toggle Dropdown -->
+    <select id="themeToggle">
+        <option value="dark">Dark Neon (Default)</option>
+        <option value="blue">Blue Theme</option>
+        <option value="pink">Pink Theme</option>
+    </select>
+
+    <table class="Calculator dark" id="calcBox">
+        <tr>
+            <td colspan="3">
+                <input type="text" class="display dark" id="result" disabled>
+            </td>
+            <td><button class="ntb dark" onclick="clearscreen()">AC</button></td>
+        </tr>
+
+        <tr>
+            <td><button class="dark" onclick="displayed(1)">1</button></td>
+            <td><button class="dark" onclick="displayed(2)">2</button></td>
+            <td><button class="dark" onclick="displayed(3)">3</button></td>
+            <td><button class="dark" onclick="displayed('+')">+</button></td>
+        </tr>
+
+        <tr>
+            <td><button class="dark" onclick="displayed(4)">4</button></td>
+            <td><button class="dark" onclick="displayed(5)">5</button></td>
+            <td><button class="dark" onclick="displayed(6)">6</button></td>
+            <td><button class="dark" onclick="displayed('-')">-</button></td>
+        </tr>
+
+        <tr>
+            <td><button class="dark" onclick="displayed(7)">7</button></td>
+            <td><button class="dark" onclick="displayed(8)">8</button></td>
+            <td><button class="dark" onclick="displayed(9)">9</button></td>
+            <td><button class="dark" onclick="displayed('*')">*</button></td>
+        </tr>
+
+        <tr>
+            <td><button class="dark" onclick="displayed(0)">0</button></td>
+            <td><button class="dark" onclick="displayed('.')">.</button></td>
+            <td><button class="ntb dark" onclick="calculation()">=</button></td>
+            <td><button class="dark" onclick="displayed('/')">/</button></td>
+        </tr>
+    </table>
+
+<script>
+    function displayed(value){
+        document.getElementById("result").value += value;
+    }
+
+    function clearscreen(){
+        document.getElementById("result").value = "";
+    }
+
+    function calculation(){
+        try{
+            let exp = document.getElementById("result").value;
+            document.getElementById("result").value = eval(exp);
+        }
+        catch{
+            document.getElementById("result").value = "Error";
+        }
+    }
+
+    /* ============================
+         THEME SWITCHER SCRIPT
+    ============================ */
+    document.getElementById("themeToggle").addEventListener("change", function(){
+
+        let theme = this.value;
+
+        // Update body
+        document.body.className = theme;
+
+        // Update calculator box & display
+        document.getElementById("calcBox").className = "Calculator " + theme;
+        document.getElementById("result").className = "display " + theme;
+
+        // Update all buttons
+        document.querySelectorAll("button").forEach(btn => {
+            let isNTB = btn.classList.contains("ntb");
+            btn.className = (isNTB ? "ntb " : "") + theme;
+        });
+    });
+</script>
+
+</body>
+</html>

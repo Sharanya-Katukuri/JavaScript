@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+
+    <style>
+      body{
+        background: #0f0f0f;
+        font-family: Arial;
+        color: white;
+        transition: 0.3s;
+      }
+
+      /* Main Calculator Box */
+      .Calculator{
+        height: 400px;
+        width: 300px;
+        margin: 50px auto;
+        padding: 15px;
+        border-radius: 20px;
+        background-color: #1c1c1c;
+        box-shadow: 0 12px 25px rgba(0,255,220,0.3);
+        transition: 0.3s;
+      }
+
+      /* Display Screen */
+      .display{
+        width: 230px;
+        height: 60px;
+        background-color: #000;
+        color: #00f6ff;
+        border-radius: 10px;
+        font-size: 28px;
+        padding: 5px;
+        border: 1px solid #00ffe1;
+        box-shadow: inset 0 0 10px #00ffe1;
+        transition: 0.3s;
+      }
+
+      /* Buttons */
+      button{
+        width: 45px;
+        height: 45px;
+        background-color: #00eaff;
+        border-radius: 10px;
+        color: black;
+        font-size: 18px;
+        cursor: pointer;
+        transition: 0.2s;
+        box-shadow: 0 0 10px #00eaff;
+        border: none;
+      }
+      button:hover{
+        box-shadow: 0 0 20px #00eaff;
+        transform: scale(1.1);
+      }
+      button:active{
+        transform: scale(0.9);
+      }
+
+      .ntb{
+        background-color: #ff0077;
+        box-shadow: 0 0 10px #ff0077;
+      }
+
+      /* Theme Button */
+      #themeBtn{
+        width: 150px;
+        background:#ffe600;
+        padding:10px 20px;
+        border-radius:10px;
+        border:none;
+        cursor:pointer;
+        margin-left: 50%;
+        transform: translateX(-50%);
+        margin-top: 20px;
+        font-size:16px;
+        box-shadow: 0 0 10px #ffe600;
+        transition: 0.3s;
+      }
+
+      #themeBtn:hover{
+        transform: translateX(-50%) scale(1.05);
+      }
+
+      /* Light Theme */
+      .light{
+        background: #fafafa;
+        color: black !important;
+      }
+
+      .light .Calculator{
+        background: white;
+        box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+      }
+
+      .light .display{
+        background: #f0f0f0;
+        color: black;
+        border: 1px solid #333;
+        box-shadow: inset 0 0 5px #555;
+      }
+
+      .light button{
+        background: #ddd;
+        color: black;
+        box-shadow: 0 0 10px #aaa;
+      }
+
+      .light button:hover{
+        box-shadow: 0 0 20px #aaa;
+      }
+
+      .light .ntb{
+        background: #ff3366;
+      }
+    </style>
+</head>
+<body>
+
+    <!-- Theme Toggle Button -->
+    <button onclick="toggleTheme()" id="themeBtn">Light Theme</button>
+
+    <table class="Calculator">
+        <tr>
+            <td colspan="3"><input type="text" class="display" id="result" disabled></td>
+            <td><button class="ntb" onclick="clearscreen()">AC</button></td>
+        </tr>
+
+        <tr>
+            <td><button onclick="displayed(1)">1</button></td>
+            <td><button onclick="displayed(2)">2</button></td>
+            <td><button onclick="displayed(3)">3</button></td>
+            <td><button onclick="displayed('+')">+</button></td>
+        </tr>
+
+        <tr>
+            <td><button onclick="displayed(4)">4</button></td>
+            <td><button onclick="displayed(5)">5</button></td>
+            <td><button onclick="displayed(6)">6</button></td>
+            <td><button onclick="displayed('-')">-</button></td>
+        </tr>
+
+        <tr>
+            <td><button onclick="displayed(7)">7</button></td>
+            <td><button onclick="displayed(8)">8</button></td>
+            <td><button onclick="displayed(9)">9</button></td>
+            <td><button onclick="displayed('*')">*</button></td>
+        </tr>
+
+        <tr>
+            <td><button onclick="displayed(0)">0</button></td>
+            <td><button onclick="displayed('.')">.</button></td>
+            <td><button class="ntb" onclick="calculation()">=</button></td>
+            <td><button onclick="displayed('/')">/</button></td>
+        </tr>
+    </table>
+
+<script>
+    function displayed(value){
+        document.getElementById("result").value += value;
+    }
+
+    function clearscreen(){
+        document.getElementById("result").value = "";
+    }
+
+    function calculation(){
+        try{
+            var res = document.getElementById("result").value;
+            var result = eval(res);
+            document.getElementById('result').value = result;
+        }
+        catch{
+            document.getElementById('result').value = "Error";
+        }
+    }
+
+    // Theme Toggle Function
+    function toggleTheme(){
+        document.body.classList.toggle("light");
+
+        let btn = document.getElementById("themeBtn");
+        if(document.body.classList.contains("light")){
+            btn.textContent = "Dark Theme";
+        } else {
+            btn.textContent = "Light Theme";
+        }
+    }
+</script>
+
+</body>
+</html>
