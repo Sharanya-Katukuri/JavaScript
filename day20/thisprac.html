@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THIS</title>
+</head>
+<body>
+    <p id="std1"></p>
+    <p id="std2"></p>
+    <p id="std3"></p>
+    <p id="std4"></p>
+    <script>
+        const student1={
+            studentId:100,
+            studentName:"sharanya",
+            studentCity:"hyderabad",
+            studentDetails:function(course,batch){
+                return `studentName:${this.studentId}|studentName:${this.studentName}|studentCity:${this.studentCity}|Course:${course}|Batch:${batch}`
+            }
+        }
+        console.log(student1.studentDetails("python","53r"))
+        document.getElementById("std1").innerHTML=student1.studentDetails("python","53r")
+
+        // call
+        const student2={
+            studentId:101,
+            studentName:"harish",
+            studentCity:"warangal"
+        }
+        console.log(student1.studentDetails.call(student2,"java","60r"))
+        document.getElementById("std2").innerHTML=student1.studentDetails.call(student2,"java","60r")
+
+        // apply
+        const student3={
+            studentId:102,
+            studentName:"siri",
+            studentCity:"hanumakonda"
+        }
+        console.log(student1.studentDetails.apply(student3,["python","68r"]))
+        document.getElementById("std3").innerHTML=student1.studentDetails.apply(student3,["python","68r"])
+
+        //bind 
+
+        const student4={
+            studentId:103,
+            studentName:"chandu",
+            studentCity:"warangal",
+        }
+
+        var res=student1.studentDetails.bind(student4,"ai","72r")
+        console.log(res())
+        document.getElementById("std4").innerHTML=res()
+
+
+
+
+    </script>
+</body>
+</html>

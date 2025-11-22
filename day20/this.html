@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This keyword</title>
+</head>
+<body>
+    <p id="para"></p>
+    <script>
+        const person1={
+            firstName:"sharanya",
+            lastName:"katukuri",
+            fullName:function(age,city){
+               return`The firstname is ${this.firstName} and lastname is ${this.lastName} and the age ${age} and city is ${city}`
+            }
+        }
+        console.log(person1.fullName(23,"warangal"))
+
+        document.getElementById("para").innerHTML=person1.fullName(23,"hyderabad")
+
+
+        // call()
+
+        const person2={
+            firstName:"harish",
+            lastName:"katukuri",
+        }
+        console.log(person1.fullName.call(person2,21,"hyderabad"))
+
+
+
+        // apply()
+
+        const person3={
+            firstName:"lavanya",
+            lastName:"katukuri",
+        }
+        console.log(person1.fullName.apply(person3,[40,"warangal"]))
+
+
+
+        // bind()
+
+        const person4={
+            firstName:"ramulu",
+            lastName:"katukuri",
+        }
+        var res=person1.fullName.bind(person4,53,"warangal")
+        console.log(res());
+        
+    </script>
+</body>
+</html>
