@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Live Clock</title>
+    <style>
+        #clock {
+            font-size: 40px;
+            font-weight: bold;
+            margin: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Live Digital Clock</h2>
+
+<div id="clock">00:00:00</div>
+
+<button onclick="startClock()">Start Clock</button>
+<button onclick="stopClock()">Stop Clock</button>
+
+<script>
+    let intervalId;
+
+    function showTime() {
+        let time = new Date().toLocaleTimeString();
+        document.getElementById("clock").innerText = time;
+    }
+
+    function startClock() {
+        if (!intervalId) {
+            intervalId = setInterval(showTime, 1000);
+        }
+    }
+
+    function stopClock() {
+        clearInterval(intervalId);
+        intervalId = null;
+    }
+</script>
+
+</body>
+</html>
