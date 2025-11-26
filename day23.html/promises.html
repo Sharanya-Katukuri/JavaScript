@@ -24,7 +24,7 @@
             console.log(err)
         })
 
-        let age_check=new Promise((resolve,reject)=>{
+        let age_checker=new Promise((resolve,reject)=>{
             age=21
             if(age>=18){
                 resolve("eligible for vote")
@@ -33,14 +33,13 @@
                 reject("not eligible for vote")
             }
         })
-        age_check
+        age_checker
         .then((eligible)=>{
             console.log(eligible)
         })
         .catch((noteligible)=>{
             console.log(noteligible)
         })
-
        
     </script>
 </body>
