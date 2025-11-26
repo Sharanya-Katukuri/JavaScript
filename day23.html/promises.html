@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let exammarks=new Promise((resolve,reject)=>{
+            marks=35
+            if(marks>=35){
+                resolve("pass")
+            }
+            else{
+                reject("not cleared yet,on the way")
+            }
+        })
+        exammarks
+        .then((msg)=>{
+            console.log(msg)
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
+
+        let age_check=new Promise((resolve,reject)=>{
+            age=21
+            if(age>=18){
+                resolve("eligible for vote")
+            }
+            else{
+                reject("not eligible for vote")
+            }
+        })
+        age_check
+        .then((eligible)=>{
+            console.log(eligible)
+        })
+        .catch((noteligible)=>{
+            console.log(noteligible)
+        })
+
+       
+    </script>
+</body>
+</html>
