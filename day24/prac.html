@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // // synchronous
+        // console.log("A")
+        // console.log("B")
+        // console.log("step 1")
+        // for(let i=0;i<1e7;i++){}
+        // console.log("step 2")
+        // asynchronous
+        // console.log("a")
+        // setTimeout(()=>console.log("b"),1000);
+        // console.log("c")
+        // callback
+        // function greet(name,cb){
+        //     cb(`hello,${name}`)
+        // }
+        // greet("sharanya",msg=>console.log(msg))
+        // greet("cherry",msg=>{console.log(msg)})
+
+        // //settimeout
+        // setTimeout(()=>console.log("after 1s"),1000);
+
+        // console.log("start")
+        // setTimeout(()=>console.log("timeout 0"),0)
+        // console.log("end")
+
+        // const id=setTimeout(()=>console.log("won't run"),1000)
+        // clearTimeout(id)
+        // console.log("canceled")
+
+        // let count=0;
+        // const ids=setInterval(()=>{
+        //     count++;
+        //     console.log("tick",count);
+        //     if (count===3)clearInterval(ids)
+        // },500)
+
+        function wait(ms){
+            return new Promise(resolve=>setTimeout(resolve,ms));
+        }
+        wait(500).then(()=>console.log("500ms passed"))
+        
+        
+    </script>
+</body>
+</html>
