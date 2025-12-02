@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation-2</title>
+</head>
+<body>
+    <form name="myform" onsubmit="return formvalidation()">
+        Name:<input type="text" name="username"> <br><br>
+        Password:<input type="password" name="password1"> <br><br>
+        Re-Enter Password:<input type="password" name="password2"><br><br>
+        <input type="submit" value="login" name="btn">
+
+
+    </form>
+    <script>
+        function formvalidation(){
+            var name=document.myform.username.value
+            var password1=document.myform.password1.value
+            var password2=document.myform.password2.value
+            if(name==null||name==""){
+                alert("username is mandatory")
+                return false;
+            }
+            else if(password1.length>=6 && password2.length>=6){
+                if(password1==password2){
+                    alert("loggedIn successfully!")
+                    return true;
+
+                }
+                else{
+                    alert("password and re-enter password does not matched")
+                    return false;
+                }
+            }
+            else{
+                alert("password is mandatory")
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
