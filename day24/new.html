@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>BOM Example</h2>
+<!-- <button onclick="showInfo()">Show Browser Info</button> -->
+
+<script>
+// function showInfo() {
+//     alert("URL: " + location.href);
+//     alert("Browser: " + navigator.userAgent);
+//     alert("Screen Width: " + screen.width);
+// }
+console.log(window);
+console.log(window.innerWidth);
+console.log(window.innerHeight);
+
+// alert("This is an alert message!");
+
+// let name = prompt("Enter your name:");
+// console.log("User entered:", name);
+
+// let ans = confirm("Do you want to continue?");
+// console.log("User response:", ans);
+
+
+console.log(location.href);      // Get the current URL
+console.log(location.hostname);  // Get the domain name
+console.log(location.pathname);  // Get the path
+
+// Change the URL
+// location.href = "https://google.com";
+
+// Move one step back
+// history.back();
+
+// Move one step forward
+// history.forward();
+
+// Length of history
+console.log(history.length);
+console.log(screen.width);
+console.log(screen.height);
+console.log(screen.availWidth);
+console.log(screen.availHeight);
+
+
+// Open a new window
+let win = window.open("https://google.com", "_blank", "width=500,height=500");
+
+// Close after 3 seconds
+setTimeout(() => {
+    win.close();
+}, 3000);
+
+</script>
+
+</body>
+</html>

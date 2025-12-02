@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BOM Demo Project</title>
+    <style>
+        body {
+            font-family: Arial;
+            padding: 20px;
+        }
+        button {
+            padding: 10px;
+            margin: 5px;
+        }
+        #output {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #333;
+        }
+    </style>
+</head>
+<body>
+
+<h2>📌 Browser Information Dashboard (BOM Demo)</h2>
+
+<button onclick="showURL()">Show Current URL</button>
+<button onclick="showBrowser()">Show Browser Info</button>
+<button onclick="showScreen()">Show Screen Size</button>
+<button onclick="checkOnline()">Check Online Status</button>
+<button onclick="redirectGoogle()">Go to Google</button>
+<button onclick="goBack()">Back</button>
+<button onclick="goForward()">Forward</button>
+<button onclick="openWindow()">Open New Window</button>
+<button onclick="closeWindow()">Close New Window</button>
+<button onclick="showPopup()">Show Alert/Prompt/Confirm</button>
+
+<div id="output">Output will appear here...</div>
+
+<script>
+    let newWin;
+
+    function showURL() {
+        document.getElementById("output").innerHTML =
+            "Current URL: " + location.href;
+    }
+
+    function showBrowser() {
+        document.getElementById("output").innerHTML =
+            "Browser Info: " + navigator.userAgent +
+            "<br>Language: " + navigator.language;
+    }
+
+    function showScreen() {
+        document.getElementById("output").innerHTML =
+            "Screen Width: " + screen.width + "<br>" +
+            "Screen Height: " + screen.height;
+    }
+
+    function checkOnline() {
+        document.getElementById("output").innerHTML =
+            "Online Status: " + (navigator.onLine ? "Online" : "Offline");
+    }
+
+    function redirectGoogle() {
+        location.href = "https://www.google.com";
+    }
+
+    function goBack() {
+        history.back();
+    }
+
+    function goForward() {
+        history.forward();
+    }
+
+    function openWindow() {
+        newWin = window.open("https://example.com", "", "width=400,height=300");
+        document.getElementById("output").innerHTML = "New Window Opened!";
+    }
+
+    function closeWindow() {
+        if (newWin) newWin.close();
+        document.getElementById("output").innerHTML = "New Window Closed!";
+    }
+
+    function showPopup() {
+        alert("This is an alert message!");
+        let name = prompt("Enter your name:");
+        let choice = confirm("Do you want to continue?");
+        
+        document.getElementById("output").innerHTML =
+            "Name: " + name + "<br>Choice: " + choice;
+    }
+</script>
+
+</body>
+</html>
