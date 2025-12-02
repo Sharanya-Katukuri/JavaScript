@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signup</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <form name="myform" onsubmit="return formValidation()">
+        <label for="">UserName:</label>
+        <input type="text" name="username"><br><br>
+        <label for="">Email:</label>
+        <input type="email" name="email"> <br><br>
+        <label for="">Password:</label>
+        <input type="password" name="password1"> <br><br>
+        <label for="">Conformed Password</label>
+        <input type="password" name="password2"> <br><br>
+        <input type="submit" value="Login" name="btn1">
+        <input type="reset" name="btn2">
+
+    </form>
+    <script>
+        function formValidation(){
+            var name=document.myform.username.value
+            var email=document.myform.email.value
+            var password1=document.myform.password1.value
+            var password2=document.myform.password2.value
+            if(name==null||name==""){
+                alert("username is mandatory")
+                return false;
+            }
+            else if(email==null||email==""){
+                alert("email is required")
+                return false;
+            }
+            else if(password1.length<6&&password2.length<6){
+                alert("password must be greater than 6 characters")
+                return false;
+            }
+            else if(password1.length>=6&&password2.length>=6){
+                if(password1==password2){
+                    alert("signup is successfully!")
+                    return true;
+                }
+                else{
+                    alert("password and conformed does not matched")
+                    return false;
+                }
+            }
+            
+        }
+    </script>
+</body>
+</html>
