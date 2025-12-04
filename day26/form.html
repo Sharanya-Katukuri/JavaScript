@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <style>
+       /* Background */
+body{
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #e919f0, #001e87, #b211ec);
+}
+
+/* Form container */
+form{
+    width: 430px;
+    padding: 35px;
+    border-radius: 18px;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(12px);
+    border: 2px solid rgba(255,255,255,0.12);
+    box-shadow:
+        0 0 20px rgba(0,255,255,0.2),
+        0 0 40px rgba(0,150,255,0.3);
+    animation: glowIn 1s ease;
+}
+
+/* Labels */
+label{
+    display: block;
+    font-size: 14px;
+    color: #e0e0e0;
+    margin-top: 14px;
+    font-weight: 600;
+}
+
+/* Inputs */
+input, textarea, select{
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border-radius: 10px;
+    border: 1.5px solid rgba(255,255,255,0.3);
+    background: transparent;
+    color: white;
+    transition: 0.35s ease;
+    font-size: 14px;
+    outline: none;
+}
+
+select{
+    color: black;
+}
+
+/* Input glow on focus */
+input:focus, textarea:focus, select:focus{
+    border-color: #00eaff;
+    box-shadow: 
+        0 0 8px #00eaff,
+        0 0 18px rgba(0,234,255,0.6);
+}
+
+/* Error text */
+.error-message{
+    font-size: 12px;
+    color: #ff6767;
+    margin-top: 2px;
+}
+
+/* Checkbox text */
+/* Put checkbox and label on one line */
+#agree{
+    display: inline-block;
+    margin-right:0px;
+    margin-top: 30px;
+    margin-left:0px;
+    width:10%;
+}
+
+#agree + label{
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Buttons */
+input[type="submit"], input[type="reset"]{
+    width: 48%;
+    margin-top: 18px;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    color: #fff;
+    transition: 0.3s;
+    letter-spacing: 0.5px;
+}
+
+/* Submit button gradient */
+input[type="submit"]{
+    background: linear-gradient(90deg, #178bce, #007bff);
+    box-shadow: 0px 4px 15px rgba(0,206,255,0.5);
+}
+input[type="submit"]:hover{
+    transform: translateY(-2px);
+    box-shadow: 
+        0px 0px 15px #00eaff,
+        0px 0px 30px rgba(0,206,255,0.6);
+}
+
+/* Reset button */
+input[type="reset"]{
+    background: linear-gradient(90deg, #ff416c, #ff4b2b);
+    box-shadow: 0px 4px 15px rgba(255,65,108,0.5);
+}
+input[type="reset"]:hover{
+    transform: translateY(-2px);
+    box-shadow:
+        0px 0px 15px #ff4b2b,
+        0px 0px 30px rgba(255,65,108,0.6);
+}
+
+/* Form animation */
+@keyframes glowIn{
+    from{
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+    </style>
+</head>
+<body>
+    <form onsubmit="return FormValidation()">
+        <label for="name">Name:</label>
+        <input type="text" id="name"><br>
+        <span id="name-error" class="error-message"></span>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email"><br>
+        <span id="email-error" class="error-message"></span>
+
+        <label for="password1">Password:</label>
+        <input type="password" id="password1"><br>
+        <span id="password1-error" class="error-message"></span>
+
+        <label for="password2">Conformed Password:</label>
+        <input type="password" id="password2"><br>
+        <span id="password2-error" class="error-message"></span>
+
+        <label for="college">College Name:</label>
+        <textarea id="college"></textarea><br>
+        <span id="college-error" class="error-message"></span>
+
+        <label for="course">Course:</label>
+        <select id="course">
+            <option value="">---- select Here----</option>
+            <option>Python Full Stack</option>
+            <option>Java Full Stack</option>
+            <option>Mern Stack</option>
+            <option>Data Science</option>
+            <option>Manual Testing</option>
+            <option>Automation Testing</option>
+            <option>Data Analytics</option>
+        </select><br>
+        <span id="course-error" class="error-message"></span>
+
+        <div>
+            <input type="checkbox" id="agree">
+            <label for="agree">I Agree</label><br>
+        </div>
+        <span id="checkbox-error" class="error-message"></span><br>
+
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+
+    </form>
+    <script>
+        function FormValidation(){
+            const name=document.getElementById('name').value
+            const email=document.getElementById('email').value
+            const password1=document.getElementById('password1').value
+            const password2=document.getElementById('password2').value
+            const course=document.getElementById('course').value
+            const agree=document.getElementById('agree').checked
+
+            const nameError=document.getElementById('name-error')
+            const emailError=document.getElementById('email-error')
+            const password1Error=document.getElementById('password1-error')
+            const password2Error=document.getElementById('password2-error')
+            const courseError=document.getElementById('course-error')
+            const checkboxError=document.getElementById('checkbox-error')
+
+            nameError.textContent="";
+            emailError.textContent="";
+            password1Error.textContent="";
+            password2Error.textContent="";
+            courseError.textContent="";
+            checkboxError.textContent="";
+
+            let isValid=true;
+
+            if(name===""){
+                nameError.textContent="Username not filled";
+                isValid=false;
+            }
+            if(email === "" || !email.includes('@')){
+                emailError.textContent="email is not valid"
+                isValid=false;
+            }
+            if(password1===""|| password1.length<6){
+                password1Error.textContent="password should be more than 6 characters"
+                isValid=false;
+            }
+            if(password2===""|| password2.length<6){
+                password2Error.textContent="password should be more than 6 characters"
+                isValid=false;
+            }
+            if(password1!==password2){
+                password2Error.textContent="re-entered password does not match"
+                isValid=false;
+            }
+            if(course===""){
+                courseError.textContent="select the course"
+                isValid=false;
+
+            }
+            if(!agree){
+                checkboxError.textContent="Please accept the terms and conditions"
+                isValid=false;
+            }
+            if(isValid){
+                alert("Form submitted successfully!!!");
+            }
+            return isValid;
+
+
+
+        }
+    </script>
+</body>
+</html>
