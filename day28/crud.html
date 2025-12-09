@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD OPERATIONS</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="crud.js"></script>
+
+</head>
+<body>
+    <form action="">
+        <input type="text" id="name" placeholder="Enter Your Name" >
+        <input type="email" id="email" placeholder="Enter Your Email">
+        <input type="tel" id="phonenumber" placeholder="Enter Your Phone Number">
+        <input type="city" id="city" placeholder="Enter Your City">
+        <button type="button" onclick="createData()">Create</button>
+    </form> <br><br>
+
+    <table cellpadding="10" border="2" style="border: 2px solid black;">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>City</th>
+                <th colspan="2">Feild</th>
+            </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+    </table>
+
+    
+</body>
+</html>

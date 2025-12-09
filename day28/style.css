@@ -1,0 +1,108 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    background: #f2f6ff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+}
+
+h1{
+    margin-bottom: 20px;
+    color: #0a3d62;
+}
+
+form{
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    width: 70%;
+    justify-content: center;
+}
+
+form input{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 45%;
+    font-size: 14px;
+}
+
+form input:focus{
+    border-color: #0a3d62;
+    outline: none;
+}
+
+form button{
+    background: #0a3d62;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+form button:hover{
+    background: #1e5f89;
+}
+
+/* Table Design */
+table{
+    width: 80%;
+    margin-top: 30px;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+th, td{
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+th{
+    background: #0a3d62;
+    color: white;
+}
+
+tr:nth-child(even){
+    background: #f2f6ff;
+}
+
+/* Action Buttons */
+button{
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+}
+
+td button:first-child{
+    background: #1dd1a1;
+    color: white;
+}
+
+td button:first-child:hover{
+    background: #10ac84;
+}
+
+td button:last-child{
+    background: #ee5253;
+    color: white;
+}
+
+td button:last-child:hover{
+    background: #c0392b;
+}
